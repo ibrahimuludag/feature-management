@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "ActionFilter";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    You can add a ActionFilter depending on a Feature:<br />
+    <code>
+        services.AddControllersWithViews(options =>
+        {
+        options.Filters.AddForFeature<CustomActionFilter>
+            (nameof(FeatureFlags.FeatureF));
+            })
+    </code>
+</p>
+
+

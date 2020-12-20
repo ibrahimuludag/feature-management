@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Feature Examples";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Is <span class="text-info">FeatureA</span> Enabled? : <strong>@ViewBag.FeatureA</strong></p>
+
+<p>
+    If FeatureA is enabled, you will see a link. Otherwise a text message indicating FeatureA is disabled.<br />
+    <feature name="@nameof(FeatureFlags.FeatureA)">
+        <a asp-action="FeatureAPage">Go to FeatureA Page</a>
+    </feature>
+    <feature name="@nameof(FeatureFlags.FeatureA)"  negate="true">
+        <span class="text-dark">FeatureA Page is disabled</span>
+    </feature>
+</p>
+
+<p>
+    When <span class="text-info">FeatureA</span> is disabled and <span class="text-info">FeatureA</span> page is navigated, 404 error will be sent.
+    <span class="text-secondary">(By setting up IDisabledFeaturesHandler in StartUp and FeatureGate metadata)</span><br />
+    <a asp-action="FeatureAPage">Go to FeatureA Page</a>
+</p>
+
+<p>
+    <ul>
+        <li>You can enable/disable <span class="text-info">FeatureA</span> from appsettings.json <span class="text-info">FeatureManagement:FeatureA</span></li>
+        <li>
+            You can use &lt;feature&gt; tag helper in Views by adding below import to +ViewImports.cshtml <br />
+            <span class="text-info">@@addTagHelper *, Microsoft.FeatureManagement.AspNetCore.</span>
+        </li>
+</ul>    
+</p>

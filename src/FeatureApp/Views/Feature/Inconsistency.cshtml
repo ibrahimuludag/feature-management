@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "IFeatureManager";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>In the example, <span class="text-info">IFeatureManager</span> is used. You will see different values when you update <span class="text-info">appsettings.json</span>.</p>
+<p>Change value of <span class="text-info"> FeatureManagement:FeatureA</span> while the page is being loaded.</p>
+<p>Is <span class="text-info">FeatureA</span> Enabled? : <strong>@ViewBag.FeatureA</strong></p>
+
+<p>
+    <ul>
+        <li>This controller gets features by <span class="text-info">IFeatureManager</span> which may change in the same scope. To ensure a feature value is not changed in the same request, use  <span class="text-info">IFeatureManagerSnapshot</span></li>
+    </ul>
+</p>

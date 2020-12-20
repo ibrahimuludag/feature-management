@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Parameters in Feature Filters";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Feature filter can accept parameters. You can also reach to httpcontext in filter. Bu combining these, you can enable feature for users and groups. 
+    <span class="text-info">FeatureC</span> checks if the current user is <strong>Admin</strong></p>
+<p>You can also extend by using cookies, headers, etc...</p>
+<p>Is <span class="text-info">FeatureC</span> Enabled? : <strong>@ViewBag.FeatureC</strong></p>
