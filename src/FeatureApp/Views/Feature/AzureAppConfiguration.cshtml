@@ -16,26 +16,26 @@
         <li>Add your connectionstring to appsettings.json</li>
         <li>
             Apply the below code in Program.cs
-            <code>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    var connectionString = settings.GetConnectionString("AzureAppConfig");
-                    config.AddAzureAppConfiguration(options => options.Connect(connectionString).UseFeatureFlags(
-                        f => f.CacheExpirationInterval = TimeSpan.FromSeconds(1)
-                    ));
-                });
+            <code><br />
+                webBuilder.ConfigureAppConfiguration(config =><br />
+                {<br />
+                    var settings = config.Build();<br />
+                    var connectionString = settings.GetConnectionString("AzureAppConfig");<br />
+                    config.AddAzureAppConfiguration(options => options.Connect(connectionString).UseFeatureFlags(<br />
+                        f => f.CacheExpirationInterval = TimeSpan.FromSeconds(1)<br />
+                    ));<br />
+                });<br />
             </code>
         </li>
         <li>
             Add the below code in Starup.cs - ConfigureServices method.
-            <code>
+            <code><br />
                 services.AddAzureAppConfiguration();
             </code>
         </li>
         <li>
             Add the below code in Starup.cs - Configure method.
-            <code>
+            <code><br />
                 app.UseAzureAppConfiguration();;
             </code>
         </li>
