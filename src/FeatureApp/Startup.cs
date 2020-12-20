@@ -30,6 +30,7 @@ namespace FeatureApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
+            //services.AddAzureAppConfiguration();
             services.AddControllersWithViews(options =>
             {
                 options.Filters.AddForFeature<CustomActionFilter>(nameof(FeatureFlags.FeatureF));
@@ -58,6 +59,7 @@ namespace FeatureApp
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseAzureAppConfiguration();
 
             app.UseRouting();
 

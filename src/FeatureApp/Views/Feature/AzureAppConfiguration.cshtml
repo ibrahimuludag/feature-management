@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Azure App Configuration";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    Azure App Configuration provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
+    <br />
+    For more details, please refer to <a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/" target="_blank">MSDN</a>
+</p>
+<p>
+    <h2>How to enable Azure App Configuration?</h2>
+    <ul>
+        <li>Create App Configuration on Azure</li>
+        <li>Configure your features on Azure</li>
+        <li>Add your connectionstring to appsettings.json</li>
+        <li>
+            Apply the below code in Program.cs
+            <code>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connectionString = settings.GetConnectionString("AzureAppConfig");
+                    config.AddAzureAppConfiguration(options => options.Connect(connectionString).UseFeatureFlags(
+                        f => f.CacheExpirationInterval = TimeSpan.FromSeconds(1)
+                    ));
+                });
+            </code>
+        </li>
+        <li>
+            Add the below code in Starup.cs - ConfigureServices method.
+            <code>
+                services.AddAzureAppConfiguration();
+            </code>
+        </li>
+        <li>
+            Add the below code in Starup.cs - Configure method.
+            <code>
+                app.UseAzureAppConfiguration();;
+            </code>
+        </li>
+    </ul>
+</p>
+

@@ -20,6 +20,14 @@ namespace FeatureApp
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    //webBuilder.ConfigureAppConfiguration(config =>
+                    //{
+                    //    var settings = config.Build();
+                    //    var connectionString = settings.GetConnectionString("AzureAppConfig");
+                    //    config.AddAzureAppConfiguration(options => options.Connect(connectionString).UseFeatureFlags(
+                    //        f => f.CacheExpirationInterval = TimeSpan.FromSeconds(1)
+                    //    ));
+                    //});
                     webBuilder.UseStartup<Startup>();
                 });
     }

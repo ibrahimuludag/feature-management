@@ -89,5 +89,10 @@ namespace FeatureApp.Controllers
         {
             return View();
         }
+
+        public IActionResult AzureAppConfiguration()
+        {
+            return View();
+        }
     }
 }
